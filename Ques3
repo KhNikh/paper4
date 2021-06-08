@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, i, x, y, var = -1, dist = INT_MAX;
+    cout << "Enter Size of array: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter elements in array: ";
+    for (i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "Enter X: ";
+    cin >> x;
+    cout << "Enter Y: ";
+    cin >> y;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == x || arr[i] == y) {
+            if (var != -1 && arr[i] != arr[var]) dist = min(dist, i - var);
+            var = i;
+        }
+    }
+    if (dist == INT_MAX) return -1;
+    cout << dist<<"\n";
+    return 0;
+}
